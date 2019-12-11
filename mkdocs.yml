@@ -1,1 +1,79 @@
-site_name: My Docs
+# Project Information
+site_name: Doragd (Guodun Li)
+site_url: https://doragd.github.io
+site_description: Doragd's Blog and Wiki.
+site_author: Doragd
+
+# Repository
+repo_url: https://github.com/doragd.github.io
+repo_name: Doragd/doragd.github.io
+edit_uri: 'blob/master/docs'
+
+# Copyright
+copyright: 'Copyright &copy; 2019 - 2023 Doragd'
+
+
+
+
+
+
+
+# Theme
+theme:
+  name: 'material'
+  language: 'zh'
+  feature:
+    tabs: true
+  palette:
+    primary: white
+    accent: red
+  include_search_page: false
+  search_index_only: true
+  font:
+    text: 'Noto Sans'
+    code: 'Source Code Pro'
+
+    
+# Extension
+markdown_extensions:
+  - admonition
+  - def_list
+  - codehilite:
+      guess_lang: false
+  - toc:
+      permalink: true
+  - footnotes
+  - meta
+  - pymdownx.arithmatex
+  - pymdownx.betterem:
+      smart_enable: all
+  - pymdownx.caret
+  - pymdownx.critic
+  - pymdownx.details
+  - pymdownx.emoji:
+      emoji_generator: !!python/name:pymdownx.emoji.to_svg
+  - pymdownx.inlinehilite
+  - pymdownx.magiclink
+  - pymdownx.mark
+  - pymdownx.smartsymbols
+  - pymdownx.superfences
+  - pymdownx.tasklist:
+      custom_checkbox: true
+  - pymdownx.tilde
+
+plugins:
+  - search
+  - minify:
+      minify_html: true
+
+
+extra:
+  social:
+    - type: 'github'
+      link: 'https://github.com/doragd'
+    - type: 'twitter'
+      link: 'https://twitter.com/ChangeGd'
+  disqus: 'reDoragd'
+  manifest: 'manifest.webmanifest'
+
+
