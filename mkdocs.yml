@@ -5,8 +5,8 @@ site_description: Doragd's Blog and Wiki.
 site_author: Doragd
 
 # Repository
-repo_url: https://github.com/doragd.github.io
-repo_name: Doragd/doragd.github.io
+repo_url: https://github.com/doragd/doragd.github.io
+repo_name: Doragd-Wiki
 edit_uri: 'blob/master/docs'
 
 # Copyright
