@@ -1,0 +1,27 @@
+language: python
+
+python:
+  - "3.6"
+  
+branches:
+  only:
+    - master
+    
+install:
+  - pip install mkdocs
+  - echo -e "machine github.com\n  login ${GITHUB_TOKEN}" > ~/.netrc
+
+script:
+  - mkdocs build --clean
+  
+after_success:  |
+  if [ -n "$GITHUB_API_KEY" ]; then
+    cd "$TRAVIS_BUILD_DIR"
+    cd site
+    git init
+    git add .
+    git -c user.name=$GITHUB_NAME -c user.email=$GITHUB_EMAIL commit -m "Auto Deployment"
+    git push -f -q https://$GITHUB_NAME:$GITHUB_API_KEY@github.com/doragd/doragd.github.io master
+    cd "$TRAVIS_BUILD_DIR"
+  fi
+
