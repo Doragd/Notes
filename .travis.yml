@@ -15,7 +15,7 @@ script:
   - mkdocs build --clean
 
 after_success:  |
-  if [ -n "$GITHUB_API_KEY" ]; then
+  if [ -n "$GITHUB_TOKEN" ]; then
     cd "$TRAVIS_BUILD_DIR"
     cd site
     git init
