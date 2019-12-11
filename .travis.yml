@@ -16,6 +16,7 @@ script:
   
 depoly:
   provider: pages
+  github_token: $GITHUB_TOKEN
   skip_cleanup: true
   repo: doragd/doragd.github.io
   on:
