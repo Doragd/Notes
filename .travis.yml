@@ -9,7 +9,7 @@ branches:
     
 install:
   - pip install -r requirements.txt
-  - echo -e "machine github.com\n  login ${GITHUB_API_KEY}" > ~/.netrc
+  - echo -e "machine github.com\n  login ${GITHUB_TOKEN}" > ~/.netrc
 
 script:
   - mkdocs build --clean
@@ -17,8 +17,7 @@ script:
 depoly:
   provider: pages
   skip_cleanup: true
-  github-token: $GITHUB_API_KEY
-  repo: https://$GITHUB_API_KEY@$REPO
+  repo: doragd/doragd.github.io
   on:
     branch: master
   
