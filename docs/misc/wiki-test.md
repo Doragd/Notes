@@ -1,23 +1,152 @@
-# Welcome to MkDocs
+# MkDocs-Material 效果测试
 
-For full documentation visit [mkdocs.org](https://mkdocs.org).
+## Markdown 功能测试
 
-## Commands
+### 目录测试
+[toc]
 
-* `mkdocs new [dir-name]` - Create a new project.
-* `mkdocs serve` - Start the live-reloading docs server.
-* `mkdocs build` - Build the documentation site.
-* `mkdocs help` - Print this help message.
+### 列表测试
+* 水果颜色和价格
+  * 苹果
+    * 红色
+    * 8元
+  * 香蕉
+    * 黄色
+    * 5元
+* 水果购买优先级
+1. 苹果
+2. 香蕉
 
-## Project layout
+### 任务列表测试
+- [ ] 未完成
+- [x] 已完成
 
-    mkdocs.yml    # The configuration file.
-    docs/
-        index.md  # The documentation homepage.
-        ...       # Other markdown pages, images and other files.
+### 引用测试
+> 这是一条引用
+> 
+### 代码测试
+
+`single line`
+
+```ruby
+require 'redcarpet'
+markdown = Redcarpet.new("Hello World!")
+puts markdown.to_html
+```
+### 数学公式
+$$
+\mathbf{V}_1 \times \mathbf{V}_2 =  \begin{vmatrix}
+\mathbf{i} & \mathbf{j} & \mathbf{k} \\
+\frac{\partial X}{\partial u} &  \frac{\partial Y}{\partial u} & 0 \\
+\frac{\partial X}{\partial v} &  \frac{\partial Y}{\partial v} & 0 \\
+\end{vmatrix}
+$$
+
+$x+y=k$
+
+### 表格测试
+| First Header  | Second Header |
+| ------------- | ------------- |
+| Content Cell  | Content Cell  |
+| Content Cell  | Content Cell  |
+
+### 脚注测试
+这是一个脚注[^footnote].
+[^footnote]: 这里是脚注的文本
+
+### 水平分割线
+-----
+
+### 链接测试
+[Doragd](https://github.com/doragd)
+
+### 图片测试
+![img](https://www.baidu.com/img/baidu_jgylogo3.gif)
+
+### 文字效果
+**加粗**
+
+*斜体*
+
+~~删除线~~
+
+:smile:
+
+
+## Material 插件效果
+### admonition
+
+!!! note
+    这是一个笔记框
+
+!!! note "这是它的标题"
+    这是一个笔记框
+
+!!! note ""
+    空标题
+
+!!! note ""
+    代码嵌入
+    ```python
+    import os
+    print("test")
+    ```
+
+??? note "折叠笔记块"
+    这是一条可以展开和折叠的笔记
+
+#### 不同类型的框
+!!! abstract
+    Lorem ipsum dolor sit amet, consectetur adipiscing elit.
+
+!!! info
+    Lorem ipsum dolor sit amet, consectetur adipiscing elit.
+
+!!! tip
+    Lorem ipsum dolor sit amet, consectetur adipiscing elit.
+
+!!! success
+    Lorem ipsum dolor sit amet, consectetur adipiscing elit.
+
+!!! question
+    Lorem ipsum dolor sit amet, consectetur adipiscing elit.
+
+!!! warning
+    Lorem ipsum dolor sit amet, consectetur adipiscing elit.
+
+!!! failure
+    Lorem ipsum dolor sit amet, consectetur adipiscing elit.
+
+!!! danger
+    Lorem ipsum dolor sit amet, consectetur adipiscing elit.
+
+!!! bug
+    Lorem ipsum dolor sit amet, consectetur adipiscing elit. 
+  
+!!! example
+    Lorem ipsum dolor sit amet, consectetur adipiscing elit.
+
+!!! quote
+    Lorem ipsum dolor sit amet, consectetur adipiscing elit. 
+
+### CodeHilite
+#### 高亮指定行
+``` python hl_lines="3 4"
+""" Bubble sort """
+def bubble_sort(items):
+    for i in range(len(items)):
+        for j in range(len(items) - 1 - i):
+            if items[j] > items[j + 1]:
+                items[j], items[j + 1] = items[j + 1], items[j]
+```
+
+
+
+
+
 
         
-## Material color palette 颜色主题
+## Material 颜色主题切换
 
 ### Primary colors 主色
 
