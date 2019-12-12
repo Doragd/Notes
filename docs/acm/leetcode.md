@@ -1,97 +1,41 @@
-# Welcome to MkDocs
+# One AC a Day Keep the Failure Away
+!!! failure 人的一切痛苦,本质上都是对自己无能的愤怒
+    你看看你！因为不坚持刷算法题失去了多少机会！
+    没能够去想去的地方！没能够拿到喜欢的实习！失败！自卑！不敢尝试！觉得自己没有准备好！一次次退缩！都是因为你的懒惰！畏惧！不能坚持！
 
-For full documentation visit [mkdocs.org](https://mkdocs.org).
+!!! tip
+    * 悟已往之不谏，知来者之可追
+    * 驽马十驾，功在不舍
+    * 贵有恒,何须三更起五更眠; 最无益,只怕一日曝十日寒。
 
-## Commands
+!!! example 要求
+    * 每天至少AC一道题，不求多！！
+    * 每周复习一次本周的题目
 
-* `mkdocs new [dir-name]` - Create a new project.
-* `mkdocs serve` - Start the live-reloading docs server.
-* `mkdocs build` - Build the documentation site.
-* `mkdocs help` - Print this help message.
+!!! success 复习记录
+    
 
-## Project layout
+## Array
+### [27. Remove Element](https://leetcode.com/problems/remove-element/)
 
-    mkdocs.yml    # The configuration file.
-    docs/
-        index.md  # The documentation homepage.
-        ...       # Other markdown pages, images and other files.
+#### 分析
 
-        
-## Material color palette 颜色主题
+就地删除一个数组中和给定值相同的数字，并返回新的数组的长度。关键是就地！可以联想到**数组就地删除的话，一般是用后面的来覆盖前面的。** 需要一个变量用来计数，然后遍历原数组，如果当前的值和给定值不同，就把当前值覆盖计数变量的位置，并将计数变量加1。
 
-### Primary colors 主色
+#### 代码
+```c++
+class Solution {
+public:
+    int removeElement(vector<int>& nums, int val) {
+        int cnt = 0;
+        for(int i=0;i<nums.size();i++){
+            if(nums[i] != val) nums[cnt++] = nums[i];
+        }
+        return cnt;
+    }
+};
+```
 
-> 默认为 `white` 
+#### 复杂度
+空间: $O(1)$ 时间: $O(n)$
 
-点击色块可更换主题的主色
-
-<div id="color-button">
-<button data-md-color-primary="red">Red</button>
-<button data-md-color-primary="pink">Pink</button>
-<button data-md-color-primary="purple">Purple</button>
-<button data-md-color-primary="deep-purple">Deep Purple</button>
-<button data-md-color-primary="indigo">Indigo</button>
-<button data-md-color-primary="blue">Blue</button>
-<button data-md-color-primary="light-blue">Light Blue</button>
-<button data-md-color-primary="cyan">Cyan</button>
-<button data-md-color-primary="teal">Teal</button>
-<button data-md-color-primary="green">Green</button>
-<button data-md-color-primary="light-green">Light Green</button>
-<button data-md-color-primary="lime">Lime</button>
-<button data-md-color-primary="yellow">Yellow</button>
-<button data-md-color-primary="amber">Amber</button>
-<button data-md-color-primary="orange">Orange</button>
-<button data-md-color-primary="deep-orange">Deep Orange</button>
-<button data-md-color-primary="brown">Brown</button>
-<button data-md-color-primary="grey">Grey</button>
-<button data-md-color-primary="blue-grey">Blue Grey</button>
-<button data-md-color-primary="white">White</button>
-</div>
-
-<script>
-  var buttons = document.querySelectorAll("button[data-md-color-primary]");
-  Array.prototype.forEach.call(buttons, function(button) {
-    button.addEventListener("click", function() {
-      document.body.dataset.mdColorPrimary = this.dataset.mdColorPrimary;
-      localStorage.setItem("data-md-color-primary",this.dataset.mdColorPrimary);
-    })
-  })
-</script>
-
-### Accent colors 辅助色
-
-> 默认为 `red` 
-
-点击色块更换主题的辅助色
-
-<div id="color-button">
-<button data-md-color-accent="red">Red</button>
-<button data-md-color-accent="pink">Pink</button>
-<button data-md-color-accent="purple">Purple</button>
-<button data-md-color-accent="deep-purple">Deep Purple</button>
-<button data-md-color-accent="indigo">Indigo</button>
-<button data-md-color-accent="blue">Blue</button>
-<button data-md-color-accent="light-blue">Light Blue</button>
-<button data-md-color-accent="cyan">Cyan</button>
-<button data-md-color-accent="teal">Teal</button>
-<button data-md-color-accent="green">Green</button>
-<button data-md-color-accent="light-green">Light Green</button>
-<button data-md-color-accent="lime">Lime</button>
-<button data-md-color-accent="yellow">Yellow</button>
-<button data-md-color-accent="amber">Amber</button>
-<button data-md-color-accent="orange">Orange</button>
-<button data-md-color-accent="deep-orange">Deep Orange</button>
-</div>
-
-<script>
-  var buttons = document.querySelectorAll("button[data-md-color-accent]");
-  Array.prototype.forEach.call(buttons, function(button) {
-    button.addEventListener("click", function() {
-      document.body.dataset.mdColorAccent = this.dataset.mdColorAccent;
-      localStorage.setItem("data-md-color-accent",this.dataset.mdColorAccent);
-    })
-  })
-
-  // #758
-  document.getElementsByClassName('md-nav__title')[1].click()
-</script>
