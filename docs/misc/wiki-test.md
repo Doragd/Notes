@@ -1,8 +1,5 @@
 # MkDocs-Material 效果测试
 
-!!! warning
-    最好还是使用标准语法，否则VSCode渲染不支持就很丑
-
 ## Markdown 功能测试
 
 ### 列表测试

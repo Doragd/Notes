@@ -27,6 +27,8 @@
   * 最好以后还是加个虚拟环境
 *  设置ssh key后，为了实现无密码登录，要将https替换为ssh方式
 
+* VSCode支持：`Git` + `Markdown All In One` + `Markdown Extended` (支持Mkdocs的特有语法)
+
 ## 非常有用的参考资料:kissing_heart: 
 
 * [Github + Travis + Mkdocs 搭建文档库](https://flc.io/more/github-travis-mkdocs-document/)
