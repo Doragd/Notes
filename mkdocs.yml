@@ -15,10 +15,10 @@ copyright: 'Copyright &copy; 2019 - 2023 Doragd'
 
 # Nav
 nav:
-- 首页:
- - 简介: index.md
-- 数据结构与算法:
- - LeetCode: acm/leetcode.md
+  - 首页:
+    - 简介: index.md
+  - 数据结构与算法:
+    - LeetCode: acm/leetcode.md
 
 
 
