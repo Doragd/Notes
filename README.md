@@ -16,6 +16,8 @@
 * 最终方案:strawberry: 
   * 利用`Notes` 保存源文件，然后监控`Notes`的变动，部署到`doragd.github.io`
   * 坏处：需要用两个仓库来实现
+  * 补充：使用VSCode编辑markdown并推送到`Notes`上
+    * 先暂存所有修改，然后提交暂存文件，然后拉取再推送 `Ctrl+shift+G`
 
 ## 配置过程:anger:
 
