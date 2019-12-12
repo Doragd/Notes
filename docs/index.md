@@ -1,7 +1,7 @@
 # About Me
 <div  id="intro" style="display: flex; flex-direction: row; flex-wrap: wrap; align-items:center; justify-content: space-between;">
   <div id="avatar">
-  <img src="../images/avatar.png" style="width:10rem;height:auto; border-radius:50%; max-width:100%" alt="avatar">
+  <img src="https://avatars3.githubusercontent.com/u/26213546" style="width:10rem;height:auto; border-radius:50%; max-width:100%" alt="avatar">
   </div>
 <div id="text" style="display: right; width: 60%; white-space:nowarp">
 <span style="font-size:22px"><strong>Guodun Li (李国趸)</strong></span><br>
