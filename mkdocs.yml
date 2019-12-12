@@ -19,7 +19,9 @@ nav:
     - About Me: index.md
   - 数据结构与算法:
     - LeetCode: acm/leetcode.md
-    - 刷题说明: acm/standard.md
+  - 课程笔记:
+    - CS224N:
+      - 课程导览: course/cs224n/cs224n.md
   - 杂项:
     - Wiki效果测试: misc/wiki-test.md
 

@@ -16,6 +16,14 @@
 ## Biogeraphy
 Currently I am a senior student of Zhuoyue Honors College in Hangzhou Dianzi University and a member of DMAC Group in Zhejiang University, led by professor Yin Zhang.
 
-
+## To Do List
+- [ ] CS224n
+- [ ] 李宏毅 机器学习/深度学习/GAN/强化学习
+- [ ] 整理这一年来收藏的资源和文章
+- [ ] 西瓜书/蓝书/花书/神经网络与深度学习
+- [ ] 跟进各种预训练模型
+- [ ] 算法刷题/准备面试
+- [ ] 完成毕设及投稿
+- [ ] 确定未来研究方向
 
         
