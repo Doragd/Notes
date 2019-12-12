@@ -1,23 +1,6 @@
-# About Me
-<div  id="intro" style="display: flex; flex-direction: row; flex-wrap: wrap; align-items:center; justify-content: space-between;">
-  <div id="avatar">
-  <img src="../images/avatar.png" style="width:10rem;height:auto; border-radius:50%; max-width:100%" alt="avatar">
-  </div>
-<div id="text" style="display: right; width: 60%; white-space:nowarp">
-<span style="font-size:22px"><strong>Guodun Li (李国趸)</strong></span><br>
-<span style="font-size:17px">M.Sc. Student, DMAC Group</span><br>
-<span><a href="http://www.dcd.zju.edu.cn/">Digital media Computing & Design Lab (DCD Lab)</a></span><br>
-<span><a hred="http://www.zju.edu.cn/">Zhejiang Univeristy</a>, Zhejiang 310027, China</span><br>
-<span>Room 215, Library of YuQuan Campus</span><br>
-<span>Email: <a href="mailto:guodun.li#gmail.com" title="guodun.li#gmail.com">guodun.li#gmail.com</a></span><br>
-</div>
-</div>
+# Welcome to MkDocs
 
-## Biogeraphy
-Currently I am a senior student of Zhuoyue Honors College in Hangzhou Dianzi University and a member of DMAC Group in Zhejiang University, led by professor Yin Zhang.
-
-
-
+For full documentation visit [mkdocs.org](https://mkdocs.org).
 
 ## Commands
 
@@ -34,10 +17,13 @@ Currently I am a senior student of Zhuoyue Honors College in Hangzhou Dianzi Uni
         ...       # Other markdown pages, images and other files.
 
         
-## Click on a tile to change the color of the theme
-### Primary colors
+## Material color palette 颜色主题
 
-> Default: `white` 
+### Primary colors 主色
+
+> 默认为 `white` 
+
+点击色块可更换主题的主色
 
 <div id="color-button">
 <button data-md-color-primary="red">Red</button>
@@ -72,10 +58,11 @@ Currently I am a senior student of Zhuoyue Honors College in Hangzhou Dianzi Uni
   })
 </script>
 
-### Accent colors
+### Accent colors 辅助色
 
-> Default: `red` 
+> 默认为 `red` 
 
+点击色块更换主题的辅助色
 
 <div id="color-button">
 <button data-md-color-accent="red">Red</button>
