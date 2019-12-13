@@ -11,7 +11,8 @@
 !!! example "要求"
     * 每天至少AC一道题，不求多！！
     * 每周复习一次本周的题目
-    * 在自己的iPad上打好草稿并留存，然后用自己的话复述思路写到这里，注意草稿要工整，方便后期复盘
+    * 不要死磕一道题！要学会不求甚解！！等到做题多了，再去总结共性！
+    * 先掌握一种最容易理解的解法再说
 
 !!! success "复习记录"
     
@@ -19,11 +20,13 @@
 ## Array
 ### [27. Remove Element](https://leetcode.com/problems/remove-element/)
 
-#### 分析
+!!! note "题意"
+就地删除数组中和给定值相同的数字，返回新数组的长度。
 
-就地删除一个数组中和给定值相同的数字，并返回新的数组的长度。关键是就地！可以联想到数组就地删除的话，一般是用后面的来覆盖前面的。需要一个变量用来计数，然后遍历原数组，如果当前的值和给定值不同，就把当前值覆盖计数变量的位置，并将计数变量加1。
+!!! note "分析"
+用后面的数来覆盖前面的数，可以达到就地删除目的。用指针$i$表示当前扫描到的位置，用指针$j$表示待覆盖的位置。首先我们手动算出最后的结果，看看待覆盖位置和扫描位置是怎么对应的。关键是想清楚指针怎么移动来实现这种对应关系。一开始两个指针都从0开始移动，当`nums[i] == val`时，$j$找到了待覆盖的位置不再移动，$i$继续移动，直到`nums[i] != val`, 此时执行覆盖`nums[j] = nums[i]` , 然后`j++` 。实际上，在还没找到待覆盖位置前，`i`和`j`都是同时移动的，`nums[j]=nums[i]`覆盖操作可以统一，不影响。
 
-#### 代码
+!!! note "代码"
 ```c++
 class Solution {
 public:
@@ -36,7 +39,64 @@ public:
     }
 };
 ```
-
-#### 复杂度
+!!! note "复杂度"
 空间: $O(1)$ 时间: $O(n)$
+
+### [26. Remove Duplicates from Sorted Array](https://leetcode.com/problems/remove-duplicates-from-sorted-array/)
+
+!!! note "题意"
+给定一个有序的数组就地删除重复项，使得每个数字最多出现1次，返回新数组长度
+
+!!! note "分析"
+强调有序是因为只有有序，重复项才可能集中在一起，而不是分散起来。快慢指针法：最开始时两个指针都指向第一个数字，如果两个指针指的数字相同，则快指针向前走一步，如果不同，则两个指针都向前走一步，(此时注意执行覆盖，手动模拟可以知道是慢指针后面一个被快指针覆盖，然后在两个指针+1，这个操作可以被统一成`nums[++j]=nums[i++]`)，这样当快指针走完整个数组后，慢指针当前的坐标加1就是数组中不同数字的个数。
+
+!!! note "代码"
+```c++
+class Solution {
+public:
+    int removeDuplicates(vector<int>& nums) {
+        int i = 0, j = 0, n = nums.size();
+        while(i<n){
+            if(nums[i] == nums[j]) i++;
+            else nums[++j] = nums[i++];
+        }
+        return nums.empty() ? 0:(j+1);
+    }
+};
+```
+
+!!! note "复杂度"
+空间: $O(1)$ 时间: $O(n)$
+
+### [80. Remove Duplicates from Sorted Array II](https://leetcode.com/problems/remove-duplicates-from-sorted-array-ii/)
+
+!!! note "题意"
+给定一个有序的数组就地删除重复项，使得每个数字最多出现2次，返回新数组长度
+
+!!! note "分析"
+设置一个`cnt` 表示最多还可以重复多少次，这里初始化`cnt=1`。如果出现一次重复(`nums[i] == nums[j]`)，则`cnt--`，此时`cnt==0`。下次再重复时，快指针就向前一步。遇到不重复的情况，因为数组是有序的，所以一定没有重复数了，`cnt`再次恢复为1。需要注意两点：1.初始化`j=0,i=1` 2. 无论`nums[i]`和`nums[j]`是否相等，我们都要移动两个指针，那移动两个指针时，为了对两个不等的情况进行处理，所以还要加赋值操作，`nums[++i]=nums[j++]`。这个操作是对相等的情况是不影响的，可以统一。
+
+!!! note "代码"
+
+```c++
+class Solution {
+public:
+    int removeDuplicates(vector<int>& nums) {
+        int j = 0, i = 1, cnt = 1, n = nums.size();
+        while(i<n){
+            if(nums[i] == nums[j] && cnt == 0) i++; //用掉一次机会了，还出现相等就快指针移动
+            else{ //还有机会
+                if(nums[i] == nums[j]) cnt--;
+                else cnt = 1; //出现不相等的，由于是有序，不可能后面有重复的了，现在是判断新的数字了，所以恢复
+                nums[++j] = nums[i++];
+            }
+        }
+        return nums.empty() ? 0:(j+1);
+    }
+};
+```
+
+!!! note "复杂度"
+空间: $O(1)$ 时间: $O(n)$
+
 
