@@ -99,4 +99,37 @@ public:
 !!! note "复杂度"
 空间: $O(1)$ 时间: $O(n)$
 
+## [189. Rotate Array](https://leetcode.com/problems/rotate-array/)
+!!! note "题意"
+就地旋转一个数组$k$次
 
+!!! note "分析"
+很容易想到的是利用同余的思想，用取模来求得第$i$个元素旋转$k$次后的位置。关键问题是如何实现就地，也就是不利用其他空间。
+最好画图分析下，如下图所示
+![分析](../images/leetcode-189.jpg)
+
+!!! note "代码"
+
+```c++
+class Solution {
+public:
+    void rotate(vector<int>& nums, int k) {
+        k = k % nums.size();  //注意不要忘记这步，因为k可能大于size
+        int cnt = 0;
+        for(int i=0; cnt < nums.size(); i++){ //学习一下这种写法!没想到的!
+            int j = i;
+            int s = nums[i];
+            do{
+                j = (j + k) % nums.size();
+                int t = nums[j]; //先保存target的值
+                nums[j] = s; //再赋值为新的
+                s = t; //然后再更新source值为原来位置上的target值
+                cnt++; //标记已处理的元素个数，不能超过nums.size
+            }while(j != i);  //直到回到原点
+        }
+    }
+};
+```
+
+!!! note "复杂度"
+空间: $O(1)$ 时间: $O(n)$
