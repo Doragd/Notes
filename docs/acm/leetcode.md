@@ -71,9 +71,11 @@ public:
 ### [80. Remove Duplicates from Sorted Array II](https://leetcode.com/problems/remove-duplicates-from-sorted-array-ii/)
 
 !!! note "题意"
+
 给定一个有序的数组就地删除重复项，使得每个数字最多出现2次，返回新数组长度
 
 !!! note "分析"
+
 设置一个`cnt` 表示最多还可以重复多少次，这里初始化`cnt=1`。如果出现一次重复(`nums[i] == nums[j]`)，则`cnt--`，此时`cnt==0`。下次再重复时，快指针就向前一步。遇到不重复的情况，因为数组是有序的，所以一定没有重复数了，`cnt`再次恢复为1。需要注意两点：1.初始化`j=0,i=1` 2. 无论`nums[i]`和`nums[j]`是否相等，我们都要移动两个指针，那移动两个指针时，为了对两个不等的情况进行处理，所以还要加赋值操作，`nums[++i]=nums[j++]`。这个操作是对相等的情况是不影响的，可以统一。
 
 !!! note "代码"
@@ -97,14 +99,17 @@ public:
 ```
 
 !!! note "复杂度"
+
 空间: $O(1)$ 时间: $O(n)$
 
-## [189. Rotate Array](https://leetcode.com/problems/rotate-array/)
+### [189. Rotate Array](https://leetcode.com/problems/rotate-array/)
 
 !!! note "题意"
+
 就地旋转一个数组$k$次
 
 !!! note "分析"
+
 很容易想到的是利用同余的思想，用取模来求得第$i$个元素旋转$k$次后的位置。关键问题是如何实现就地，也就是不利用其他空间。
 最好画图分析下，如下图所示
 ![分析](../images/leetcode-189.jpg)
@@ -133,4 +138,5 @@ public:
 ```
 
 !!! note "复杂度"
+
 空间: $O(1)$ 时间: $O(n)$
