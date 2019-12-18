@@ -4,6 +4,24 @@
 
 ![python-graph](../../images/python-graph.png)
 
+
+## 字典、集合，你真的了解吗？
+
+### 基础知识
+* 字典是一系列由键（key）和值（value）配对组成的元素的集合
+* 字典属于集合，但是集合没有键和值的配对，是一系列无序的、唯一的元素组合
+* 字典访问: 可以使用`get(key, default)`函数来进行索引。如果键不存在，调用 `get()`函数可以返回一个默认值
+* 集合并不支持索引操作，因为集合本质上是一个哈希表
+  
+!!! warning "提醒"
+    * 在 Python3.7+，字典被确定为有序
+    * 在 3.6 中，字典有序是一个`implementation detail`，在 3.7 才正式成为语言特性，无法 100% 确保其有序性
+    * 3.6 之前是无序的，其长度大小可变，元素可以任意地删减和改变。
+
+### 字典和集合性能
+
+
+
 ## 列表和元组，到底用哪一个？
 
 ### 基础知识
@@ -54,6 +72,9 @@ l.__sizeof__()
 * 列表是动态的，长度可变，可以随意的增加、删减或改变元素。列表的存储空间略大于元组，性能略逊于元组。
 * 元组是静态的，长度大小固定，不可以对元素进行增加、删减或者改变操作。元组相对于列表更加轻量级，性能稍优。
 * 使用场景主要看存储的数据是否可变动态
+* Python 源码学习
+    * list: https://github.com/python/cpython/blob/master/Objects/listobject.c. 
+    * tuple: https://github.com/python/cpython/blob/master/Objects/tupleobject.c
 
 
 !!! warning "用`list()`还是 `[]`"
