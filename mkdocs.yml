@@ -20,11 +20,14 @@ nav:
     - To Do List: main/todolist.md
   - 数据结构与算法:
     - LeetCode: acm/leetcode.md
-  - 课程笔记:
+  - 学习笔记:
     - CS224N:
-      - 课程导览: course/cs224n/cs224n.md
+      - 课程导览: learn/cs224n/cs224n.md
     - Python:
-      - Python-极客时间: course/python/python-geek-time.md
+      - Python-极客时间: learn/python/python-geek-time.md
+    - 磕盐方法论:
+      - 方法篇: learn/science/methodology.md
+      - 生活篇: learn/science/happy-life.md
   - 杂项:
     - Wiki效果测试: misc/wiki-test.md
 
