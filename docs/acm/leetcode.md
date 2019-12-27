@@ -140,3 +140,38 @@ public:
 !!! note "复杂度"
 
 空间: $O(1)$ 时间: $O(n)$
+
+### [41. First Missing Positive](https://leetcode.com/problems/first-missing-positive/)
+
+!!! note "题意"
+就地寻找乱序数组中未出现的最小正数
+
+!!! note "分析"
+手动模拟：对数组`[3,4,-1,1]`来说, 如果长度为$n=4$的数组不缺失正数的话，应该为`[1,2,3,4]` , 即`nums[i]==i+1`，此时应该返回`n+1=5`。如果把`[3,4,-1,1]` 中的元素移动到它应该在位置，即`[1,-1,3,4]` 可以很方便看出缺失的正数是`2` , 因为在此处`nums[i] != i+1`。
+
+所以可以从头到尾扫描数组, 把正数调整到正确的位置, 即`nums[i] == nums[nums[i]-1]`。再扫描数组，找到第一个`nums[i] != i+1`, 返回`i+1`, 否则返回`n+1`。
+
+!!! note "代码"
+```c++
+class Solution {
+public:
+    int firstMissingPositive(vector<int>& nums) {
+        int n = nums.size();
+        for(int i=0;i<n;i++){
+            while(nums[i]>0 && nums[i]<=n && nums[nums[i]-1] != nums[i]){
+                swap(nums[i], nums[nums[i]-1]);
+            }
+        }
+        for(int i=0;i<n;i++){
+            if(nums[i] != i+1){
+                return i+1;
+            }
+        }
+        return n+1;
+    }
+};
+```
+
+!!! note "复杂度"
+时间复杂度$O(n)$, 空间复杂度$O(1)$
+
