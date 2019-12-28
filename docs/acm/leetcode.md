@@ -175,3 +175,43 @@ public:
 !!! note "复杂度"
 时间复杂度$O(n)$, 空间复杂度$O(1)$
 
+### [299. Bulls and Cows](https://leetcode.com/problems/bulls-and-cows/)
+
+!!! note "题意"
+有`secret`和`guess`两个数字字符串，统计`secret`中数字和位置都与`guess`相对应的数字个数`ansA`，以及`secret`中仅数字在`guess`存在但位置不同的数字个数`ansB`。
+
+!!! note "分析"
+从头到尾扫描`guess`，如果`secret[i]==guess[i]`, 则`ansA++`, 如果不同，则统计`guess`每个数字出现的次数。再扫描一次`secret`, 如果两个位置对应的数字不相同，而且`guess`中出现次数大于0的话，则`ansB++`。
+
+还有一种别人的做法是如果不同的情况，分别统计`secret`和`guess`的数字出现次数。然后每个数字在两个字符串中的次数取最小值(因为没出现则为0，出现了则肯定是较小那个)再求和即为`ansB`。
+
+!!! note "代码"
+```c++
+class Solution {
+public:
+    string getHint(string secret, string guess) {
+        vector<int> cnt(10);
+        int ansA = 0, ansB = 0;
+        for(int i=0;i<guess.length();i++){
+            if(secret[i]==guess[i]){
+                ansA++;
+            }else{
+                cnt[guess[i]-'0']++;
+            }
+        }
+        
+        for(int i=0;i<secret.length();i++){
+            if(secret[i]!=guess[i] && cnt[secret[i]-'0']){
+                ansB++;
+                cnt[secret[i]-'0']--;
+            }
+        }
+        return std::to_string(ansA) + "A" + std::to_string(ansB) + "B";
+    }
+};
+
+```
+
+!!! note "复杂度"
+时间复杂度$O(n)$, 空间复杂度$O(1)$
+
