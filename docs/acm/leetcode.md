@@ -215,7 +215,7 @@ public:
 !!! note "复杂度"
 时间复杂度$O(n)$, 空间复杂度$O(1)$
 
-### [Pascal's Triangle](https://leetcode.com/problems/pascals-triangle)
+### [118. Pascal's Triangle](https://leetcode.com/problems/pascals-triangle)
 
 !!! note "题意"
 帕斯卡三角(杨辉三角)
