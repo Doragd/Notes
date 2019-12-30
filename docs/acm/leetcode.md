@@ -241,5 +241,52 @@ public:
     }
 };
 ```
+### [134. Gas Station](https://leetcode.com/problems/gas-station/)
+
+!!! note"题意"
+给N个加油站的加油量和从这个加油站到下一个的损耗，问是否存在一个起始位置，能够顺时针走完所有加油站
+
+!!! note"分析"
+我的思路：记录经过每个加油站的剩余量，并求和。小于0则一定没有解。大于0的话，一定有唯一解。从后往前遍历，用`sum`记录到当前位置的剩余量之和，最大的`sum`即为要找的位置。因为这个位置是顺时针走到尽头所储备的起始油量最多的点。
+其他人的思路：本质一样，但更加直接，比我简洁多了TUT，因为其实可以正向遍历的。从前往后，记录剩余量并求和，如果小于0，则更新起始点位置为下一个加油点位置。走完一圈后，将当前油量与之前走过消耗的油量求和，小于0则无解，否则返回起始点位置。
+
+!!! note "代码"
+```c++
+class Solution {
+public:
+    int canCompleteCircuit(vector<int>& gas, vector<int>& cost) {
+        const int n = gas.size();
+        int tot = 0, maxid = n-1, tmpsum = 0, maxsum = 0;
+        for(int i=n-1;i>=0;i--){
+            int res = (gas[i] - cost[i]);
+            tot += res;
+            if(i == n-1){
+                maxsum = tmpsum = res;
+            }else{
+                tmpsum += res;
+                if(tmpsum >= 0 && tmpsum > maxsum){
+                    maxsum = tmpsum;
+                    maxid = i;
+                }
+            }
+        }
+        if(tot < 0) return -1;
+        return maxid;
+            
+    } 
+};
+/*别人代码*/
+class Solution {
+public:
+    int canCompleteCircuit(vector<int>& gas, vector<int>& cost) {
+        int start(0),total(0),tank(0);
+        for(int i=0;i<gas.size();i++) if((tank=tank+gas[i]-cost[i])<0) {start=i+1;total+=tank;tank=0;}
+        return (total+tank<0)? -1:start;
+    }
+}; 
+```
+!!! note "复杂度"
+时间复杂度$O(n)$, 空间复杂度$O(1)$
+
 
 
