@@ -242,6 +242,59 @@ public:
     }
 };
 ```
+
+### [119. Pascal's Triangle II](https://leetcode.com/problems/pascals-triangle-ii/)
+
+!!! note "题意"
+帕斯卡三角(杨辉三角)，要求空间 $O(k), k \leq 33$
+
+!!! note "分析"
+优化递推公式`tmp[j] = res[i-1][j-1] + res[i-1][j]`
+
+采用滚动数组的技巧 `res[j] = res[j-1] + res[j]` 优化成一维
+
+注意画图！看看值是怎么被覆盖的。
+
+注意为了避免覆盖，要从后往前递推！！(我一开始做的时候是用了多余变量来保存之前的值，比较不优雅)
+
+!!! note "代码"
+```c++
+class Solution {
+public:
+    vector<int> getRow(int rowIndex) {
+        vector<int> A(rowIndex+1, 0);
+        A[0] = 1;
+        for(int i=1; i<rowIndex+1; i++)
+            for(int j=i; j>=1; j--)
+                A[j] += A[j-1];
+        return A;
+    }
+};
+
+class Solution {
+public:
+    vector<int> getRow(int rowIndex) { 
+        vector<int> res(rowIndex + 1);
+        res[0] = 1;
+        if(rowIndex > 0){
+            res[0] = res[1] = 1;
+        }
+        for(int i=2; i<=rowIndex; i++){
+            int last = res[0];
+            for(int j=1; j<rowIndex; j++){
+                int tmp = res[j];
+                res[j] += last;
+                last = tmp;
+            }
+            res[rowIndex] = 1;
+        }
+        return res;
+    }
+};
+```
+
+
+
 ### [134. Gas Station](https://leetcode.com/problems/gas-station/)
 
 !!! note "题意"
