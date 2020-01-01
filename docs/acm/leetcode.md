@@ -348,4 +348,83 @@ public:
 时间复杂度$O(n)$, 空间复杂度$O(1)$
 
 
+### [217/219/220 Contains Duplicate](https://leetcode.com/problems/contains-duplicate-iii/)
+
+!!! note "题意"
+
+`Contains Duplicate`的三个问题
+
+* 问题1：数组中是否存在两个数重复
+* 问题2：数组中是否存在两个下标不同，下标最多相差$k$，但值相同的数
+* 问题3：数组中是否存在两个下标不同，下标最多相差$t$，值最多相差$k$的数
+
+
+!!! note "分析"
+
+* 问题1: 排序就好, $O(nlogn)$
+* 问题2：使用`unordered_map`可以让查找插入删除时间平均在$O(1)$, 总共$O(n)$。这里是为了记录值的下标
+* 问题3：使用`pair`数组记录值的下标并排序 (因为用`map`的话，重复值会被覆盖)，然后暴力$O(n^2)$
+
+!!! note "代码"
+
+```c++
+class Solution {
+public:
+    bool containsDuplicate(vector<int>& nums) {
+        if(nums.empty()) return false;
+        sort(nums.begin(), nums.end());
+        for(int i=0; i<nums.size()-1; i++){
+            if(nums[i] == nums[i+1]) return true;
+        }
+        return false;
+    }
+};
+
+class Solution {
+public:
+    bool containsNearbyDuplicate(vector<int>& nums, int k) {
+        unordered_map<int, int> mp;
+        for(int i=0; i<nums.size(); i++){
+            if(mp.find(nums[i]) == mp.end()){
+                mp[nums[i]] = i;
+            }else{
+                if(i - mp[nums[i]] <= k){
+                    return true;
+                }else{
+                    mp[nums[i]] = i;
+                }
+            }
+        }
+        return false;
+    }
+};
+
+class Solution {
+public:
+    bool containsNearbyAlmostDuplicate(vector<int>& nums, int k, int t) {
+        vector<pair<int, int> > rec;
+        for(int i=0; i<nums.size(); i++){
+            rec.push_back(std::make_pair(nums[i], i));
+        }
+        sort(rec.begin(), rec.end());
+        for(int i=0; i<rec.size(); i++){
+            for(int j=i+1; j<rec.size(); j++){
+                if(rec[j].first <= t + rec[i].first){
+                    if(abs(rec[i].second - rec[j].second) <= k){
+                        return true;
+                    }
+                }else{
+                    break;
+                }
+            }
+            
+        }
+        return false;
+    }
+};
+```
+
+
+
+
 
