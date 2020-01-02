@@ -424,6 +424,31 @@ public:
 };
 ```
 
+### [169. Majority Element](https://leetcode.com/problems/majority-element/)
+
+!!! note "题意"
+
+求众数，即出现次数大于$\lfloor len /2 \rfloor$ 的数
+
+!!! note "分析"
+
+排序之后，一定在`nums[len/2]`位置取到
+
+!!! note "代码"
+
+```c++
+class Solution {
+public:
+    int majorityElement(vector<int>& nums) {
+        sort(nums.begin(), nums.end());
+        const int idx = nums.size() / 2;
+        return nums[idx];
+    }
+
+};
+```
+
+
 
 
 
