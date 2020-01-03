@@ -448,6 +448,39 @@ public:
 };
 ```
 
+### [11. Container With Most Water](https://leetcode.com/problems/container-with-most-water)
+
+!!! note "题意"
+
+求容器最大的装水量
+
+![problem.jpg](https://s3-lc-upload.s3.amazonaws.com/uploads/2018/07/17/question_11.jpg)
+
+!!! note "分析"
+
+实际应该是双指针，装水量等于两指针的距离`j-i`乘以两者对应高度的较小值`min(height[i], height[j])`
+
+从两边向中间搜索，因为距离在减小，所以要保证最小的那个高度要尽量高，所以每次移动指针的时候，要保留较高的那个，移动较小的那个
+
+!!! note "代码"
+
+```c++
+class Solution {
+public:
+    int maxArea(vector<int>& height) {
+        int i = 0, j = height.size()-1;
+        int res = 0;
+        while(i<j){
+            res = max(res, min(height[i],height[j])*(j-i));
+            height[i] < height[j] ? i++:j--;
+        }
+        return res;
+    }
+};
+```
+
+
+
 
 
 
