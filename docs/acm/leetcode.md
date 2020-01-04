@@ -496,14 +496,15 @@ public:
 如图所示的情况说明了，我们其实需要去找的是`citations[i] > i`，那么第0篇到第$i$篇都至少有$i+1$次引用，那么实际的h就为$i+1$
 
 比如说：$h=3$
-|index|0|1|2|3|4
-|-|-|-|-|-|-|
+
+|index|0|1|2|3|4|
+|-----|-|-|-|-|-|
 |value|6|5|3|1|0|
 |`citations[i] > i` | true|true|true|false|false|
 
 比如说：$h=2$
-|index|0|1|2|3|4
-|-|-|-|-|-|-|
+|index|0|1|2|3|4|
+|-----|-|-|-|-|-|
 |value|6|5|2|1|0|
 |`citations[i] > i` | true|true|false|false|false|
 
