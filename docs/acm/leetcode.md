@@ -479,6 +479,56 @@ public:
 };
 ```
 
+### [274. H指数](https://leetcode-cn.com/problems/h-index/solution/)
+
+!!! note "题意"
+
+在数组中至少有`h`个数大于等于`h`，剩下`n-h`个数小于等于`h`, 求这样的`h`
+
+!!! note "分析"
+
+题目给了一个样例，`[3,0,6,1,5]`。一开始想的是从大到小排序来看：对6来说，至少有1个大于等于6，对5来说，至少有2个大于等于5，对3来说，有3个大于等于3，这样答案即为3。但是我这样的做法并没有考虑这个`h`是否在数组里出现。如果出现的话，那么当然是`citations[i] == i+1` 。
+但是新的一个样例是`[6,5,2,1,0],h=2` 我这样的做法就行不通了。
+题解给了很好的解释，即说明了这个值很可能不存在于数组，那这个时候怎么办。
+
+<img src="https://pic.leetcode-cn.com/Figures/274_H_index.svg" width=50%>
+
+如图所示的情况说明了，我们其实需要去找的是`citations[i] > i`，那么第0篇到第$i$篇都至少有$i+1$次引用，那么实际的h就为$i+1$
+
+比如说：$h=3$
+|index|0|1|2|3|4
+|-|-|-|-|-|-|
+|value|6|5|3|1|0|
+|`citations[i] > i` | true|true|true|false|false|
+
+比如说：$h=2$
+|index|0|1|2|3|4
+|-|-|-|-|-|-|
+|value|6|5|2|1|0|
+|`citations[i] > i` | true|true|false|false|false|
+
+在代码实现的时候，先排序，然后出现第一个`citations[j] <= j` 时，`j`即为答案，因为此时是刚才说的`i+1`
+
+!!! note "代码"
+
+```c++
+class Solution {
+public:
+    int hIndex(vector<int>& citations) {
+        sort(citations.begin(), citations.end(), greater<int>());
+        for (int i = 0; i < citations.size(); i++) {
+            if (citations[i] <= i) return i;
+        }
+        return citations.size();
+    }
+};
+```
+
+!!! note "复杂度"
+
+时间$O(nlogn)$, 空间$O(1)$
+
+
 
 
 
