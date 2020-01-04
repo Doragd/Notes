@@ -503,6 +503,7 @@ public:
 |`citations[i] > i` | true|true|true|false|false|
 
 比如说：$h=2$
+
 |index|0|1|2|3|4|
 |-----|-|-|-|-|-|
 |value|6|5|2|1|0|
