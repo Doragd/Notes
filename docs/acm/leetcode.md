@@ -491,7 +491,7 @@ public:
 但是新的一个样例是`[6,5,2,1,0],h=2` 我这样的做法就行不通了。
 题解给了很好的解释，即说明了这个值很可能不存在于数组，那这个时候怎么办。
 
-<img src="https://pic.leetcode-cn.com/Figures/274_H_index.svg" width=50%>
+<img src="https://pic.leetcode-cn.com/Figures/274_H_index.svg">
 
 如图所示的情况说明了，我们其实需要去找的是`citations[i] > i`，那么第0篇到第$i$篇都至少有$i+1$次引用，那么实际的h就为$i+1$
 
