@@ -25,6 +25,8 @@ nav:
       - 课程导览: learn/cs224n/cs224n.md
     - Python:
       - Python-极客时间: learn/python/python-geek-time.md
+    - 概率论和数理统计:
+      - 笔记: learn/stat/statistics.md
     - 磕盐方法论:
       - 方法篇: learn/science/methodology.md
       - 生活篇: learn/science/happy-life.md
