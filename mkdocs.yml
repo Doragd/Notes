@@ -35,10 +35,10 @@ nav:
     - 论文选读:
       - Stylized Image Caption: archive/stylized-image-caption.md
   - 其他:
-    - 磕盐方法论: archive/science-methodology.md
     - Wiki效果测试: archive/wiki-test.md
     - Polyaxon食谱: archive/polyaxon-cookbook.md
     - Python极客时间笔记: archive/python-geek-time.md
+    - 磕盐方法论: archive/science-methodology.md
 
 
 # Theme
