@@ -2,7 +2,7 @@
 !!! tip
     这里记录一下在极客时间买的Python课程的笔记
 
-![python-graph](../../images/python-graph.png)
+![python-graph](../images/python-graph.png)
 
 
 ## 匿名函数

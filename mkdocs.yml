@@ -16,23 +16,29 @@ copyright: 'Copyright &copy; 2019 - 2023 Doragd'
 # Nav
 nav:
   - 首页:
-    - About Me: index.md
-    - To Do List: main/todolist.md
+    - 关于我: index.md
   - 数据结构与算法:
-    - LeetCode: acm/leetcode.md
-  - 学习笔记:
+    - LeetCode: archive/leetcode.md
+  - 数理基础:
+    - 概率论读书笔记: archive/math-statistics.md
+  - 自然语言处理:
     - CS224N:
-      - 课程导览: learn/cs224n/cs224n.md
-    - Python:
-      - Python-极客时间: learn/python/python-geek-time.md
-    - 概率论和数理统计:
-      - 笔记: learn/stat/statistics.md
-    - 磕盐方法论:
-      - 方法篇: learn/science/methodology.md
-      - 生活篇: learn/science/happy-life.md
-  - 杂项:
-    - Wiki效果测试: misc/wiki-test.md
-    - Polyaxon食谱: misc/polyaxon-cookbook.md
+      - 课程导览: archive/cs224n.md
+  - Daily Paper:
+    - Paper List: archive/paper-list.md
+    - ACL论文速览:
+      - ACL2019: archive/acl2019-quick-review.md
+    - EMNLP论文速览:
+      - EMNLP2019: archive/emnlp2019-quick-review.md
+    - NAACL论文速览:
+      - NAACL2019: archive/naacl2019-quick-review.md
+    - 论文选读:
+      - Stylized Image Caption: archive/stylized-image-caption.md
+  - 其他:
+    - 磕盐方法论: archive/science-methodology.md
+    - Wiki效果测试: archive/wiki-test.md
+    - Polyaxon食谱: archive/polyaxon-cookbook.md
+    - Python极客时间笔记: archive/python-geek-time.md
 
 
 # Theme
