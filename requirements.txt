@@ -1,5 +1,5 @@
 mkdocs>=1
-mkdocs-material==4.6.0
+mkdocs-material==4.6.3
 mkdocs-minify-plugin
 pymdown-extensions
 python-markdown-math
